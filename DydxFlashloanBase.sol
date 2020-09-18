@@ -1,5 +1,5 @@
 // SPDX-License-Identifier:
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity >=0.5.0 <0.7.0;
 pragma experimental ABIEncoderV2;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/math/SafeMath.sol";
