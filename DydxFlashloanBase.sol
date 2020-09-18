@@ -1,10 +1,11 @@
-// SPDX-License-Identifier:
-pragma solidity >=0.5.0 <0.7.0;
+pragma solidity ^0.5.7;
 pragma experimental ABIEncoderV2;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/math/SafeMath.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/IERC20.sol";
-import "https://github.com/spikeruk/SmartContract/blob/master/IDydx.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+import "./ISoloMargin.sol";
+
 
 contract DydxFlashloanBase {
     using SafeMath for uint256;
@@ -32,17 +33,21 @@ contract DydxFlashloanBase {
         revert("No marketId found for provided token");
     }
 
-    function _getRepaymentAmount() internal pure returns (uint256) {
+    function _getRepaymentAmountInternal(uint256 amount)
+        internal
+        view
+        returns (uint256)
+    {
         // Needs to be overcollateralize
         // Needs to provide +2 wei to be safe
-        return 2;
+        return amount.add(2);
     }
 
     function _getAccountInfo() internal view returns (Account.Info memory) {
         return Account.Info({owner: address(this), number: 1});
     }
 
-    function _getWithdrawAction(uint256 marketId, uint256 amount)
+    function _getWithdrawAction(uint marketId, uint256 amount)
         internal
         view
         returns (Actions.ActionArgs memory)
@@ -88,7 +93,7 @@ contract DydxFlashloanBase {
             });
     }
 
-    function _getDepositAction(uint256 marketId, uint256 amount)
+    function _getDepositAction(uint marketId, uint256 amount)
         internal
         view
         returns (Actions.ActionArgs memory)
