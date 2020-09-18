@@ -1,5 +1,11 @@
 pragma solidity ^0.5.0;
 
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/IERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/SafeERC20.sol";
+import "./EthAddressLib.sol";
+import "../utils/Withdrawable.sol";
+
 
 contract IOneSplitConsts {
     // disableFlags = FLAG_DISABLE_UNISWAP + FLAG_DISABLE_KYBER + ...
