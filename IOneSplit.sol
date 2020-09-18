@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "@OpenZeppelin/openzeppelin-contracts/token/ERC20/IERC20.sol";
+import "@OpenZeppelin/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol";
 
 
 contract IOneSplitConsts {
