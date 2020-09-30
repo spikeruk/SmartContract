@@ -1,5 +1,7 @@
 pragma solidity ^0.6.0;
 
+import "https://github.com/spikeruk/SmartContract/blob/master/SafeMath.sol";
+
 
 contract Any_Price {
     using SafeMath for uint112;
