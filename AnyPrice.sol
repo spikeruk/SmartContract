@@ -1,7 +1,7 @@
 pragma solidity ^0.6.0;
 
 
-contract Any_Price is ERC20_Utils {
+contract Any_Price {
     using SafeMath for uint112;
     using SafeMath for uint256;
     
